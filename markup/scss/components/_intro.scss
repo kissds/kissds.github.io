@@ -1,0 +1,162 @@
+a {
+	&:hover{
+		text-decoration: none;
+	}
+}
+
+html {
+	&.nav-active {
+		@include media('>=tablet') {
+			height: 100vh;
+			overflow: hidden;
+		}
+
+		body {
+			height: 100vh;
+			overflow: hidden;
+		}
+	}
+}
+
+.intro {
+	background-size: cover;
+	background-position: 50% -50%;
+	background-repeat: no-repeat;
+	position: relative;
+	height: 100vh;
+
+	@include media("<tablet") {
+		text-align: left !important;
+	}
+
+	&:after {
+		content: "";
+		background: rgba(68, 79, 80, .25);
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: 0;
+	}
+
+	.container-fluid {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		display: flex;
+	}
+
+	.description {
+		position: absolute;
+		bottom: 81px;
+		left: 0;
+		right: 0;
+		z-index: 2;
+
+		@include media(">=tablet") {
+			bottom: 150px;
+		}
+
+		@include media(">=desktop") {
+			bottom: 302px;
+		}
+	}
+
+	h1 {
+		font-size: 45px;
+		line-height: 50px;
+		font-weight: bold;
+		color: $white;
+		text-transform: uppercase;
+		text-shadow: 3px 3px 5px rgba(0, 0, 0, .35);
+
+		@include media('>=tablet') {
+			font-size: 35px;
+		}
+
+		@include media('>=widescreen') {
+			font-size: 85px;
+			line-height: 90px;
+		}
+	}
+}
+
+.video-hold {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100vh;
+	z-index: -1;
+
+	@include media('<tablet') {
+		background: url(../images/intro-img.jpg) 50% 50% / cover;
+	}
+
+	@include media ('>=desktop') {
+		height: auto;
+		bottom: 0;
+	}
+
+	video {
+		width: 100%;
+		transform: translate(-50%, -50%);
+		height: auto;
+		position: absolute;
+		background-color: black;
+		top: 50%;
+		left: 50%;
+
+		@include media('<tablet') {
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		.is-touch-device & {
+			display: none;
+		}
+	}
+}
+
+.scroll-link {
+	@include animate(opacity visibility);
+
+	color: $white;
+	position: absolute;
+	bottom: 22px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 5;
+	font-size: 11px;
+	line-height: 14px;
+
+	@include media(">=tablet") {
+		font-size: 14px;
+		line-height: 18px;
+		bottom: 52px;
+	}
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		opacity: .7;
+		color: $white;
+	}
+
+	i {
+		display: block;
+		font-size: 36px;
+		line-height: 1;
+		margin: 0 auto 13px;
+
+		@include media(">=desktop") {
+			font-size: 62px;
+			margin: 0 auto 17px;
+		}
+	}
+}

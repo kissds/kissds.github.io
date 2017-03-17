@@ -1,0 +1,29 @@
+// custom variables and override bootstrap variables
+
+$body-bg: #eee;
+
+$white: #fff;
+$yellow: #fbb900;
+$dark-gray: #444f50;
+$green: #76b82a;
+$light-blue: #b2dcd5;
+
+$brand-success:         $green;
+$brand-warning:         $yellow;
+
+$text-color:            $dark-gray;
+
+$font-family-sans-serif: "Din", Helvetica, Arial, sans-serif;
+
+$link-color: $brand-success;
+
+$font-size-base:          25px;
+
+$line-height-base:        1.6;
+
+// Medium screen / desktop
+//** Deprecated `$screen-md` as of v3.0.1
+$screen-md:                  1024px;
+$screen-md-min:              $screen-md;
+//** Deprecated `$screen-desktop` as of v3.0.1
+$screen-desktop:             $screen-md-min;

@@ -1,0 +1,193 @@
+.cycle-gallery {
+	position: relative;
+
+	.mask {
+		position: relative;
+		overflow: hidden;
+
+		.slideset {
+			float: left;
+			width: 100%;
+		}
+
+		.slide {
+			position: relative;
+			float: left;
+			display:flex;
+			flex-direction:row;
+			background: $yellow;
+			width: 100%;
+
+			&:nth-child(2) {
+				background: $green;
+				color: $white;
+			}
+
+			&:nth-child(3) {
+				background: $light-blue;
+			}
+
+			&.active {
+				z-index: 1;
+			}
+
+			.container-fluid {
+				position: relative;
+
+				&:after,
+				&:before {
+					display: none;
+				}
+			}
+
+			h2 {
+				font-size: 75px;
+				font-weight: 900;
+				margin-top: 0;
+
+				@include media('<1500px') {
+					font-size: 50px;
+				}
+
+				@include media('<widescreen') {
+					font-size: 35px;
+				}
+
+				@include media('<tablet') {
+					font-size: 25px;
+					margin-bottom: 20px;
+
+					br {
+						display: none;
+					}
+				}
+			}
+
+			.row,
+			[class^="col-"], [class*=" col-"] {
+				position: static;
+			}
+
+			[class^="col-"], [class*=" col-"] {
+				@include media('<tablet') {
+					padding-bottom: 50px;
+				}
+			}
+		}
+
+		.container-fluid {
+			position: relative;
+			min-height: 100vh;
+			display:flex;
+			justify-content: center;
+			flex-direction: column;
+			width: 100%;
+
+			@include media('>=desktop') {
+				padding: 90px 15px;
+			}
+		}
+
+		.text-holder {
+			@include media('>=desktop') {
+				max-width: 81%;
+			}
+		}
+
+		.title {
+			position: absolute;
+			content: '';
+			top: 0;
+			left: calc(15px);
+			color: $white;
+
+			@include media('<desktop') {
+				position: static;
+				display: block;
+				margin-bottom: 20px;
+			}
+
+			@include media('>=desktop') {
+				top: 50px;
+				left: calc(8.3333333333% + 15px);
+			}
+		}
+	}
+
+	.pagination {
+		position: absolute;
+		bottom: 50px;
+		right: 50%;
+		transform: translateX(50%);
+		z-index: 9992;
+
+		@include media('>=desktop') {
+			top: 50%;
+			right: 30px;
+			bottom: auto;
+			transform: translateY(-50%);
+		}
+
+		@include media('>=widescreen') {
+			right: 59px;
+		}
+
+		.nav-active & {
+			z-index: 10;
+		}
+
+		ul {
+			@extend %listreset;
+
+			background-color: rgba($white, .3);
+			border-radius: 9px;
+			padding: 0px 10px;
+
+			@include media('>=desktop') {
+				padding: 15px 9px;
+			}
+
+			li {
+				@include media('<desktop') {
+					display: inline-block;
+					vertical-align: middle;
+					margin-right: 8px;
+				}
+				@include media('>=desktop') {
+					margin-bottom: 12px;
+				}
+
+				&:last-child {
+					margin-right: 0;
+					margin-bottom: 0;
+				}
+
+				&.active {
+					a {
+						background-color: transparent;
+					}
+				}
+
+				a {
+					display: block;
+					width: 12px;
+					height: 12px;
+					background-color: $white;
+					border: 2px solid white;
+					font-size: 0;
+					line-height: 0;
+					border-radius: 50%;
+
+					@include media('>=desktop') {
+						width: 18px;
+						height: 18px;
+					}
+
+					&:hover {
+						background-color: transparent;
+					}
+				}
+			}
+		}
+	}
+}

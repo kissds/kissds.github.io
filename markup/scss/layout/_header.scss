@@ -1,0 +1,195 @@
+#header {
+	position: relative;
+	z-index: 12;
+
+	&.header-fixed {
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+		z-index: 9999;
+	}
+}
+
+.logo {
+	width: 97px;
+	position: absolute;
+	left: 50%;
+	top: 15px;
+	transform: translateX(-50%);
+
+	@include media(">=tablet") {
+		width: 153px;
+		top: 43px;
+	}
+
+	.header-fixed & {
+		right: 22px;
+		left: auto;
+		transform: translateX(0);
+		width: 50px;
+
+		@include media(">=tablet") {
+			width: 68px;
+			right: 46px;
+		}
+
+		img {
+			display: none;
+
+			&.small {
+				display: block;
+			}
+		}
+	}
+
+	a {
+		display: block;
+		position: static;
+		transform: none;outline: none;
+		&:focus {
+			opacity: 1;
+		}
+	}
+
+	img {
+		@include animate(opacity visibility);
+
+		display: block;
+		width: 100%;
+		height: auto;
+
+		&.small {
+			display: none;
+		}
+	}
+}
+
+.nav-opener {
+	@include animate(color);
+
+	position: absolute;
+	top: 18px;
+	left: 22px;
+	color: $white;
+	font-size: 35px;
+	z-index: 9999;
+
+	@include media(">=desktop") {
+		top: 42px;
+		left: 33px;
+		font-size: 40px;
+	}
+
+
+	&:focus,
+	&:hover {
+		color: $green;
+		text-decoration: none;
+	}
+}
+
+.navbar {
+	@include animate(left);
+
+	display: flex;
+	align-items: center;
+	position: absolute;
+	left: -100vw;
+	width: 100%;
+	top: 0;
+	height: 100vh;
+	overflow: hidden;
+	overflow-y: auto;
+	background: linear-gradient(to bottom, rgba(68,79,80,1) 0%,rgba(68,79,79,1) 16%,rgba(64,75,75,1) 37%,rgba(47,57,57,1) 100%);
+
+	.nav-active & {
+		left: 0;
+		z-index: 9999;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 100%;
+		overflow-y: auto;
+		transition: all .3s ease-in-out;
+	}
+
+	.nav-opener {
+		left: auto;
+		right: 26px;
+		font-size: 40px;
+
+		@include media(">=desktop") {
+			font-size: 60px;
+			right: 29px;
+			top: 26px;
+		}
+
+		&:focus,
+		&:hover {
+			color: $brand-success;
+		}
+	}
+
+	.contact {
+		padding: 62px 9px 0;
+		background: none;
+
+		@include media(">=desktop") {
+			padding: 0;
+		}
+
+		.col {
+			&:first-child{
+				@include media("<tablet") {
+					border: 0;
+					padding-bottom: 30px;
+				}
+
+				@include media(">=tablet") {
+					display: flex;
+					align-items: center;
+				}
+			}
+
+			.hold {
+				width: 100%;
+			}
+		}
+
+		h3 {
+			margin: 0 0 9px;
+		}
+	}
+}
+
+.main-nav {
+	font-size: 25px;
+	line-height: 28px;
+	font-weight: bold;
+	margin: 0 0 39px;
+
+	@include media(">=desktop") {
+		font-size: 45px;
+		line-height: 50px;
+		margin: 0 0 49px;
+	}
+
+	li {
+		margin: 0 0 12px;
+
+		@include media(">=desktop") {
+			margin: 0 0 20px;
+		}
+	}
+
+	a {
+		color: $white;
+
+		&:hover{
+			color: $brand-success;
+		}
+	}
+}

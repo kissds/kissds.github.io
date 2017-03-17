@@ -1,0 +1,6 @@
+@import '../base/mixins';
+
+@include font-face(Din, DINWeb-Medium, 500, normal);
+@include font-face(Din, DINWeb-Light, 300, normal);
+@include font-face(Din, DINWeb-Bold, 700, normal);
+@include font-face(Din, DINWeb, 400, normal);
